@@ -3,12 +3,12 @@ import { ChevronLeft, ChevronRight } from "lucide-react"
 
 const slides = [
   {
-    image: 'src/assets/carousel-bg-one.png',
+    image: '/carousel-bg-one.png',
     title: 'GROCERIES DELIVERY',
     description: 'We know how large objects will act, but things on a small scale just do not act that way.',
   },
   {
-    image: 'src/assets/carousel-bg-two.webp',
+    image: '/carousel-bg-two.webp',
     title: 'FAST & SAFE DELIVERY',
     description: 'We know how large objects will act, but things on a small scale just do not act that way.',
   },
