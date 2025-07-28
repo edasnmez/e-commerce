@@ -1,21 +1,33 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 
 const slides = [
   {
-    image: '/carousel-bg-one.png',
+    image: 'src/assets/carousel-bg-one.png',
     title: 'GROCERIES DELIVERY',
     description: 'We know how large objects will act, but things on a small scale just do not act that way.',
+    shortDescription: 'We know how large objects will act, but things on a small scale.'
   },
   {
-    image: '/carousel-bg-two.webp',
+    image: 'src/assets//carousel-bg-two.webp',
     title: 'FAST & SAFE DELIVERY',
     description: 'We know how large objects will act, but things on a small scale just do not act that way.',
+    shortDescription: 'We know how large objects will act, but things on a small scale.'
   },
 ]
 
 function Carousel() {
   const [currentIndex, setCurrentIndex] = useState(0)
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 420)
+
+   useEffect(() => {
+    const checkWidth = () => setIsMobile(window.innerWidth <= 420)
+    checkWidth()
+    window.addEventListener('resize', checkWidth)
+    return () => window.removeEventListener('resize', checkWidth)
+  }, [])
+
+
 
   const goNext = () => {
     setCurrentIndex((prev) => (prev + 1) % slides.length)
@@ -28,16 +40,18 @@ function Carousel() {
   const currentSlide = slides[currentIndex]
 
   return (
-    <div className="relative w-full h-[528px] overflow-hidden font-montserrat">
+    <div className="relative w-full h-[638px] overflow-hidden font-montserrat">
       <img
         src={currentSlide.image}
         alt={currentSlide.title}
         className="w-full h-full object-cover"
       />
 
-      <div className="absolute inset-0 flex flex-col justify-center items-center gap-6 pt-[80px] text-white">
-        <h1 className="text-5xl font-bold tracking-[2px]">{currentSlide.title}</h1>
-        <p className="text-lg text-center max-w-[420px]">{currentSlide.description}</p>
+      <div className="absolute inset-0 flex flex-col justify-center items-center text-center gap-8 pt-[80px] text-white max-[420px]:pt-0 max-[420px]:justify-center max-[420px]:text-center">
+        <h1 className="text-5xl font-bold tracking-[2px] items-center leading-[50px] max-[420px]:text-[40px]">{currentSlide.title}</h1>
+        <p className="text-xl w-[42%] px-4 max-[420px]:w-3/4">
+          {isMobile ? currentSlide.shortDescription : currentSlide.description}
+        </p>
         <button className="bg-[#23A6F0] px-10 py-3.5 rounded-md font-bold text-xl hover:bg-[#23A6F0]/90 transition tracking-wide">
           Start Now
         </button>
@@ -46,16 +60,16 @@ function Carousel() {
 
       <button
         onClick={goPrev}
-        className="absolute top-1/2 left-5  text-white "
+        className="absolute top-1/2 left-5  text-white max-[420px]:left-1.5"
       >
-        <ChevronLeft size={60} strokeWidth={1}/>
+        <ChevronLeft size={80} strokeWidth={1}/>
       </button>
 
       <button
         onClick={goNext}
-        className="absolute top-1/2 right-5  text-white "
+        className="absolute top-1/2 right-5  text-white max-[420px]:right-1.5"
       >
-        <ChevronRight size={60} strokeWidth={1} /> 
+        <ChevronRight size={80} strokeWidth={1} /> 
       </button>
 
    
@@ -75,3 +89,6 @@ function Carousel() {
 }
 
 export default Carousel
+
+
+
