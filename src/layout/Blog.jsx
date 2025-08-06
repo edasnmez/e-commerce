@@ -12,7 +12,7 @@ function Blog() {
         <div className='cards flex justity-center w-full gap-7 max-[420px]:flex-col'>
             <div className='card-one w-1/3  shadow-[0_2px_4px_rgba(0,0,0,0.1)] max-[420px]:w-full'>
                <div className='relative'>
-                    <img src="src/assets/blog-one.png" alt="" />
+                    <img src="/assets/blog-one.png" alt="" />
 
                     <div className="absolute font-semibold text-xs text-white px-2 py-0.5 rounded-xs top-5 left-5 bg-[#E74040] tracking-widest">
                             NEW
