@@ -7,6 +7,7 @@ import ProductDetailPage from './pages/ProductDetailPage'
 import Contact from './pages/Contact'
 import Team from './pages/Team'
 import About from './pages/About'
+import SignUp from './pages/SignUp'
 
 
 
