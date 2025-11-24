@@ -3,14 +3,14 @@ import { ChevronLeft, ChevronRight } from "lucide-react"
 
 const slides = [
   {
-    image: 'src/assets/carousel-bg-one.png',
-    title: 'GROCERIES DELIVERY',
+    image: 'public/assets/Home/carousel1.png',
+    title: 'NEW COLLECTİON',
     description: 'We know how large objects will act, but things on a small scale just do not act that way.',
     shortDescription: 'We know how large objects will act, but things on a small scale.'
   },
   {
-    image: 'src/assets//carousel-bg-two.webp',
-    title: 'FAST & SAFE DELIVERY',
+    image: 'public/assets/Home/carousel2.png',
+    title: 'NEW COLLECTİON',
     description: 'We know how large objects will act, but things on a small scale just do not act that way.',
     shortDescription: 'We know how large objects will act, but things on a small scale.'
   },
@@ -47,12 +47,12 @@ function Carousel() {
         className="w-full h-full object-cover"
       />
 
-      <div className="absolute inset-0 flex flex-col justify-center items-center text-center gap-8 pt-[80px] text-white max-[420px]:pt-0 max-[420px]:justify-center max-[420px]:text-center">
+      <div className="w-[900px] absolute inset-0 flex flex-col justify-center items-center text-center gap-8 pt-[80px] text-white max-[420px]:pt-0 max-[420px]:justify-center max-[420px]:text-center">
         <h1 className="text-5xl font-bold tracking-[2px] items-center leading-[50px] max-[420px]:text-[40px]">{currentSlide.title}</h1>
         <p className="text-xl w-[42%] px-4 max-[420px]:w-3/4">
           {isMobile ? currentSlide.shortDescription : currentSlide.description}
         </p>
-        <button className="bg-[#23A6F0] px-10 py-3.5 rounded-md font-bold text-xl hover:bg-[#23A6F0]/90 transition tracking-wide">
+        <button className="bg-[#2DC071] px-10 py-3.5 rounded-md font-bold text-xl hover:bg-[#2DC071]/90 transition tracking-wide">
           Start Now
         </button>
       </div>

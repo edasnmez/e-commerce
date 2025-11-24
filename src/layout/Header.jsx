@@ -1,9 +1,27 @@
 import { ChevronDown, Heart, Menu, Search, ShoppingCart, User } from 'lucide-react'
 import { useState } from 'react';
-
+import Gravatar from 'react-gravatar'; 
+import { useDispatch, useSelector } from 'react-redux';
+import { Link, useHistory } from 'react-router-dom/cjs/react-router-dom';
+import { setSelectedCategory } from '../store/actions/categoryActions';
+import ShoppingCardDropDown from '../components/ShoppingCardDropDown';
 
 function Header() {
        const [open, setOpen] = useState(false);
+       const user = useSelector(state => state.client.user);
+
+       const { items } = useSelector((state) => state.categories);
+
+      const kadin = items.filter(c => c.gender === "k");
+      const erkek = items.filter(c => c.gender === "e");
+
+      const dispatch = useDispatch();
+      const history = useHistory();
+
+      const handleCategoryClick = (cat) => {
+        dispatch(setSelectedCategory(cat));
+        history.push(`/shop/${cat.gender}/${cat.title.toLowerCase()}/${cat.id}`);
+};
   return (
 
     <>
@@ -12,42 +30,86 @@ function Header() {
         <nav className="text-[14px] font-bold text-[#737373]  max-[420px]:hidden">
           <ul className="flex space-x-4">
             <li>
-              <a href="#">
-                Home
-              </a>
+              <Link to="/home">Home</Link>
             </li>
+           <li className="relative group">
+            <Link to="/shop" className="flex items-center font-medium text-[#252B42]">
+              Shop <span className="ml-1">▼</span>
+            </Link>
+
+            <div className="absolute left-0 mt-2 hidden group-hover:flex bg-white shadow-lg p-6 gap-20">
+              <div>
+                <h4 className="font-bold mb-3 text-[#252B42]">Kadın</h4>
+                {[...kadin]
+                  .sort((a, b) => b.rating - a.rating) 
+                  .slice(0, 5)                         
+                  .map((cat) => (
+                    <Link
+                      key={cat.id}
+                     onClick={() => handleCategoryClick(cat)}
+                      className="block hover:underline mb-2"
+                    >
+                      {cat.title}
+                    </Link>
+                  ))}
+              </div>
+
+              <div>
+                <h4 className="font-bold mb-3 text-[#252B42]">Erkek</h4>
+                {[...erkek]
+                  .sort((a, b) => b.rating - a.rating)
+                  .slice(0, 5)
+                  .map((cat) => (
+                    <Link
+                      key={cat.id}
+                     onClick={() => handleCategoryClick(cat)}
+                      className="block hover:underline mb-2"
+                    >
+                      {cat.title}
+                    </Link>
+                  ))}
+              </div>
+            </div>
+          </li>
+
             <li>
-              <a href="#" className='flex items-center font-medium text-[#252B42]'>
-                Shop <span><ChevronDown size={18} strokeWidth={2} className='ml-1'/></span>
-              </a>
-            </li>
-            <li>
-              <a href="#">
+              <Link to="/about" >
                 About
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#">
+              <Link >
                 Blog
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#">
+              <Link to="/contact" >
                 Contact
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#">
+              <Link >
                 Pages
-              </a>
+              </Link>
             </li>
           </ul>
     </nav>
     <nav className='text-[#23A6F0] text-[14px] '>
      <ul className="flex space-x-4 max-[420px]:text-[#3C403D] ">
 
+      {user ? (
+        <>
+          <li>
+            <a className="flex gap-1 items-center">
+              <Gravatar email={user.email} size={36} className='rounded-full'/>
+              <span>{user.name}</span>
+            </a>
+          </li>
+        </>
+      ) : (
+
         <li>
-            <a href="#" className="flex gap-1 items-center">
+            <Link to="/login" className="flex gap-1 items-center">
               <User
                 size={18}
                 strokeWidth={1}
@@ -59,37 +121,23 @@ function Header() {
                 className="hidden max-[420px]:block"
               />
               <span className="max-[420px]:hidden font-bold">Login / Register</span>
-            </a>
+            </Link>
           </li>
-
-          <li>
-            <Search
-              size={18}
-              strokeWidth={1}
-              className="max-[420px]:hidden"
-            />
-            <Search
-              size={22}
-              strokeWidth={2}
-              className="hidden max-[420px]:block"
-            />
-          </li>
-
+        )}
           <li className="flex gap-1 items-center">
-            <ShoppingCart
+            <Search
               size={18}
               strokeWidth={1}
               className="max-[420px]:hidden"
             />
-
-            <ShoppingCart
+            <Search
               size={22}
               strokeWidth={2}
               className="hidden max-[420px]:block"
             />
-
-            <span className="max-[420px]:hidden">1</span>
           </li>
+
+          <ShoppingCardDropDown />
 
           <li className="flex gap-1 items-center max-[420px]:hidden">
             <Heart size={18} strokeWidth={1} />

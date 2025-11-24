@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react' ;
 import { useForm } from 'react-hook-form';
-import api from '../api';
-import axios from 'axios';
+import api from '../api';import axios from 'axios';
 function SignUp() {
    const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm();
   const [roles, setRoles] = useState([]);

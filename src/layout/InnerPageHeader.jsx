@@ -1,4 +1,5 @@
 import { ArrowRight } from 'lucide-react'
+import { Link} from 'react-router-dom/cjs/react-router-dom';
 import React from 'react'
 
 
@@ -9,9 +10,7 @@ function InnerPageHeader() {
         <nav className="text-[14px] font-bold text-[#737373]  max-[420px]:hidden">
           <ul className="flex space-x-4">
             <li>
-              <a href="#">
-                Home
-              </a>
+              <Link to="/home">Home</Link>
             </li>
             <li>
               <a href="#" >
@@ -25,9 +24,9 @@ function InnerPageHeader() {
             </li>
            
             <li>
-              <a href="#">
+              <Link to="/contact" >
                 Contact
-              </a>
+              </Link>
             </li>
           </ul>
     </nav>

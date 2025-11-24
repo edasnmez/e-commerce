@@ -1,0 +1,108 @@
+{
+  "categories": [
+    {
+      "id": 1,
+      "title": "Breakfast",
+      "rating": 4.2,
+      "code": "CAT001",
+      "subcategories": [
+        { "id": 101, "title": "Eggs" },
+        { "id": 102, "title": "Olives" },
+        { "id": 103, "title": "Honey" },
+        { "id": 104, "title": "Jam" }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Dairy",
+      "rating": 4.3,
+      "code": "CAT002",
+      "subcategories": [
+        { "id": 201, "title": "Milk" },
+        { "id": 202, "title": "Yogurt" },
+        { "id": 203, "title": "Butter" },
+        { "id": 204, "title": "Cheese" }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Fruits & Vegetables",
+      "rating": 4.5,
+      "code": "CAT003",
+      "subcategories": [
+        { "id": 301, "title": "Fruits" },
+        { "id": 302, "title": "Vegetables" },
+        { "id": 303, "title": "Greens" }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Meat & Deli",
+      "rating": 4.6,
+      "code": "CAT004",
+      "subcategories": [
+        { "id": 401, "title": "Red Meat" },
+        { "id": 402, "title": "Chicken" },
+        { "id": 403, "title": "Fish" },
+        { "id": 404, "title": "Sausage" },
+        { "id": 405, "title": "Salami" },
+        { "id": 406, "title": "Bacon" }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Beverages",
+      "rating": 4.1,
+      "code": "CAT005",
+      "subcategories": [
+        { "id": 501, "title": "Water" },
+        { "id": 502, "title": "Soft Drinks" },
+        { "id": 503, "title": "Juices" },
+        { "id": 504, "title": "Tea" },
+        { "id": 505, "title": "Coffee" },
+        { "id": 506, "title": "Energy Drinks" }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Snacks",
+      "rating": 4.2,
+      "code": "CAT006",
+      "subcategories": [
+        { "id": 601, "title": "Chips" },
+        { "id": 602, "title": "Chocolate" },
+        { "id": 603, "title": "Biscuits" },
+        { "id": 604, "title": "Nuts" },
+        { "id": 605, "title": "Crackers" }
+      ]
+    },
+    {
+      "id": 7,
+      "title": "Cleaning & Personal Care",
+      "rating": 4.3,
+      "code": "CAT007",
+      "subcategories": [
+        { "id": 701, "title": "Laundry Detergent" },
+        { "id": 702, "title": "Dishwashing Detergent" },
+        { "id": 703, "title": "Soap" },
+        { "id": 704, "title": "Shampoo" },
+        { "id": 705, "title": "Toothpaste" },
+        { "id": 706, "title": "Paper Products" }
+      ]
+    },
+    {
+      "id": 8,
+      "title": "Staple Foods",
+      "rating": 4.4,
+      "code": "CAT008",
+      "subcategories": [
+        { "id": 801, "title": "Pasta" },
+        { "id": 802, "title": "Rice" },
+        { "id": 803, "title": "Flour" },
+        { "id": 804, "title": "Sugar" },
+        { "id": 805, "title": "Spices" },
+        { "id": 806, "title": "Sauces" }
+      ]
+    }
+  ]
+}
